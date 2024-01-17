@@ -1,0 +1,6 @@
+FOOTBALL_API_TOKEN = '08b983fb988b4db0a2ea9e21d1e15f51'
+HOST_REDSHIFT = 'data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com'
+USUARIO_REDSHIFT = 'nachosachetto1998_coderhouse'
+CONTRASEÑA_REDSHIFT = '7obT4RE7uI'
+PUERTO_REDSHIFT = '5439'
+BASEDEDATOS_REDSHIFT = 'data-engineer-database' 
