@@ -10,28 +10,24 @@ from credentials import FOOTBALL_API_TOKEN, HOST_REDSHIFT, USUARIO_REDSHIFT, CON
 from psycopg2.extras import execute_values
 
 
-url = "data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws"
-data_base = 'data-engineer-database'
-user = 'nachosachetto1998_coderhouse'
-pwd = '7obT4RE7uI'
 
 redshift_conn = {
-    'host': url,
-    'username': user,
-    'database': data_base,
+    'host': HOST_REDSHIFT,
+    'username': USUARIO_REDSHIFT,
+    'database': BASEDEDATOS_REDSHIFT,
     'port': '5439',
-    'pwd': pwd
+    'pwd': CONTRASEÑA_REDSHIFT
 }
 
 default_args = {
-    'owner': 'NacchoSachetto',
+    'owner': 'Ignacio Sachetto',
     'start_date': datetime(2023, 12, 20),
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }
 
 futbol_dag = DAG(
-    dag_id='ETLFutbolll',
+    dag_id='ETL_Futbol',
     default_args=default_args,
     description='Agrega datos de los partidos de las principales ligas del mundo diariamente.',
     schedule_interval="@daily",
@@ -41,10 +37,9 @@ futbol_dag = DAG(
 
 def conexion_redshift(exec_date, **kwargs):
     logging.info(f"Conectandose a la BD en la fecha: {exec_date}")
-    url = "data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com"
     try:
         conn = psycopg2.connect(
-            host=url,
+            host=redshift_conn["host"],
             dbname=redshift_conn["database"],
             user=redshift_conn["username"],
             password=redshift_conn["pwd"],
@@ -59,7 +54,7 @@ def conexion_redshift(exec_date, **kwargs):
 def verificar_respuesta_api(exec_date, **kwargs):
     base_url = 'https://api.football-data.org/v4/'
     url_team_random = f'{base_url}teams/99'
-    response_team_data = requests.get(url_team_random, headers={'X-Auth-Token': '08b983fb988b4db0a2ea9e21d1e15f51'})
+    response_team_data = requests.get(url_team_random, headers={'X-Auth-Token': FOOTBALL_API_TOKEN })
 
     if response_team_data.status_code == 200:
         data_team = response_team_data.json()
@@ -83,7 +78,7 @@ def extraccion(**kwargs):
                 'dateTo': date_to,
                 'competitions': code
             }
-            response = requests.get(url_matches, params=params, headers={'X-Auth-Token': '08b983fb988b4db0a2ea9e21d1e15f51'})
+            response = requests.get(url_matches, params=params, headers={'X-Auth-Token': FOOTBALL_API_TOKEN})
 
             if response.status_code == 200:
                 data = response.json()
@@ -123,9 +118,9 @@ from psycopg2.extras import execute_values
 
 def cargar_datos_redshift(exec_date, **kwargs):
 
-    url="data-engineer-cluster.cyhh5bfevlmn.us-east-1.redshift.amazonaws.com"
+
     conn = psycopg2.connect(
-        host=url,
+        host=redshift_conn["host"],
         dbname=redshift_conn["database"],
         user=redshift_conn["username"],
         password=redshift_conn["pwd"],
