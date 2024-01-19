@@ -1,0 +1,25 @@
+[2024-01-19 03:35:55,904] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: ETLProcesoCompleto.cargar_redshift_task manual__2024-01-19T03:35:31.271539+00:00 [queued]>
+[2024-01-19 03:35:55,927] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: ETLProcesoCompleto.cargar_redshift_task manual__2024-01-19T03:35:31.271539+00:00 [queued]>
+[2024-01-19 03:35:55,927] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-19 03:35:55,929] {taskinstance.py:1377} INFO - Starting attempt 1 of 6
+[2024-01-19 03:35:55,930] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2024-01-19 03:35:55,981] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): cargar_redshift_task> on 2024-01-19 03:35:31.271539+00:00
+[2024-01-19 03:35:55,989] {standard_task_runner.py:52} INFO - Started process 23494 to run task
+[2024-01-19 03:35:55,994] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'ETLProcesoCompleto', 'cargar_redshift_task', 'manual__2024-01-19T03:35:31.271539+00:00', '--job-id', '1993', '--raw', '--subdir', 'DAGS_FOLDER/ETLSachetto.py', '--cfg-path', '/tmp/tmpvs3_g9gy', '--error-file', '/tmp/tmp62ikjfli']
+[2024-01-19 03:35:55,997] {standard_task_runner.py:80} INFO - Job 1993: Subtask cargar_redshift_task
+[2024-01-19 03:35:56,145] {task_command.py:371} INFO - Running <TaskInstance: ETLProcesoCompleto.cargar_redshift_task manual__2024-01-19T03:35:31.271539+00:00 [running]> on host 8278623e2516
+[2024-01-19 03:35:56,261] {logging_mixin.py:115} WARNING - /home/***/.local/lib/python3.7/site-packages/***/utils/context.py:202 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2024-01-19 03:35:56,364] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=Ignacio Sachetto
+AIRFLOW_CTX_DAG_ID=ETLProcesoCompleto
+AIRFLOW_CTX_TASK_ID=cargar_redshift_task
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-19T03:35:31.271539+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-01-19T03:35:31.271539+00:00
+[2024-01-19 03:35:57,817] {ETLSachetto.py:141} INFO - Sin partidos nuevos.
+[2024-01-19 03:35:57,817] {python.py:173} INFO - Done. Returned value was: None
+[2024-01-19 03:35:57,838] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=ETLProcesoCompleto, task_id=cargar_redshift_task, execution_date=20240119T033531, start_date=20240119T033555, end_date=20240119T033557
+[2024-01-19 03:35:58,017] {local_task_job.py:156} INFO - Task exited with return code 0
+[2024-01-19 03:35:58,161] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

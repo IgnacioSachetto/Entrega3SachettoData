@@ -1,3 +1,4 @@
+#Importacion de Librerias
 from datetime import datetime, timedelta
 import requests
 import psycopg2
@@ -9,8 +10,7 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 from credentials import FOOTBALL_API_TOKEN, HOST_REDSHIFT, USUARIO_REDSHIFT, CONTRASEÑA_REDSHIFT, PUERTO_REDSHIFT, BASEDEDATOS_REDSHIFT
 from psycopg2.extras import execute_values
 
-
-
+#Conexión a Redshift usando varibles de entorno (Utilizar archivo credentials.py)
 redshift_conn = {
     'host': HOST_REDSHIFT,
     'username': USUARIO_REDSHIFT,
@@ -19,22 +19,25 @@ redshift_conn = {
     'pwd': CONTRASEÑA_REDSHIFT
 }
 
+#Tomar el dia de hoy
+current_datetime = datetime.utcnow()
+
 default_args = {
     'owner': 'Ignacio Sachetto',
-    'start_date': datetime(2023, 12, 20),
+    'start_date': current_datetime,
     'retries': 5,
     'retry_delay': timedelta(minutes=5)
 }
-
+#Definición del DAG y sus atributos
 futbol_dag = DAG(
-    dag_id='ETL_Futbol',
+    dag_id='ETLProcesoCompleto',
     default_args=default_args,
     description='Agrega datos de los partidos de las principales ligas del mundo diariamente.',
-    schedule_interval="@daily",
-    catchup=False
+    schedule_interval="@daily", #Para una ejecución diaria.
+    catchup=False # Evita la ejecución de tareas para fechas anteriores.
 )
 
-
+#1° Tarea = Verificar la conexión con RedShift, usando las credenciales previamente definidas.
 def conexion_redshift(exec_date, **kwargs):
     logging.info(f"Conectandose a la BD en la fecha: {exec_date}")
     try:
@@ -44,81 +47,99 @@ def conexion_redshift(exec_date, **kwargs):
             user=redshift_conn["username"],
             password=redshift_conn["pwd"],
             port='5439')
-        logging.info("Connected to Redshift successfully!")
+        logging.info("Conectado a RedShift Correctamente!")
     except Exception as e:
-        logging.error("Unable to connect to Redshift.")
+        logging.error("No se pudo conectar a Redshift :().")
         logging.error(e)
 
 
-
+#2° Tarea = Verificar la conexión con la API, usando las credenciales previamente definidas.
 def verificar_respuesta_api(exec_date, **kwargs):
     base_url = 'https://api.football-data.org/v4/'
     url_team_random = f'{base_url}teams/99'
     response_team_data = requests.get(url_team_random, headers={'X-Auth-Token': FOOTBALL_API_TOKEN })
 
     if response_team_data.status_code == 200:
-        data_team = response_team_data.json()
-        logging.info(data_team)
+        logging.info('Conexión correcta a la API')
     else:
         logging.error('Error al obtener los partidos')
 
 
-def extraccion(**kwargs):
+#3° Tarea = Transformación y Extracción de Datos
+def transformacion_extraccion_datos(exec_date,**kwargs):
     url_matches = 'https://api.football-data.org/v4/matches'
-    competition_codes = ['PL', 'BL1', 'SA', 'PD', 'FL1']
-    dataframes = []
+    competition_codes = ['PL', 'BL1', 'SA', 'PD', 'FL1'] #Defino las competiciones que me interesan almacenar
+    dataframes = [] #Defino el Dataframe
 
-    date_from = '2023-12-01'
-    date_to = '2023-12-10'
+    hoy = datetime.now() #Obtengo el día de hoy.
 
+    anteayer = hoy - timedelta(days = 2)  # Para obtener el periodo (dia_actual - 2, dia_actual - 1). Decidí utilizar este periodo considerando posibles retrasos a la carga de datos de la API, se podría quitar la resta y obtener el periodo del dia anterior al actual.
+    ayer = hoy - timedelta(days = 1) #Obtengo el día de ayer.
+
+    anteayer_str = anteayer.strftime('%Y-%m-%d') #Le doy formato a la fecha para que tenga el mismo formato que los partidos cargados en la API.
+    ayer_str = ayer.strftime('%Y-%m-%d') #Idem Anterior.
+
+    logging.info(f'date_from: {anteayer}') #Para verificar que el formato sea correcto.
+    logging.info(f'date_to: {ayer_str}') #Idem anterior.
+
+    date_from = anteayer_str
+    date_to = ayer_str
+
+
+    #Obtención de los datos desde la API para el periodo indicado anteriormente.
     try:
         for code in competition_codes:
+            # Para configurar los parámetros para la solicitud a la API.
             params = {
                 'dateFrom': date_from,
                 'dateTo': date_to,
                 'competitions': code
             }
+
+            # Para realizar la solicitud a la API con los parámetros y el token de autenticación.
             response = requests.get(url_matches, params=params, headers={'X-Auth-Token': FOOTBALL_API_TOKEN})
 
+            # Si la API responde con un código 200 (OK), proceso los datos.
             if response.status_code == 200:
                 data = response.json()
-                df = pd.DataFrame(data['matches'])
-                df['fecha_partido'] = df['utcDate']
-                df['competicion'] = df['competition'].apply(lambda x: x['name'])
-                df['estado'] = df['status']
-                df['etapa'] = df['stage']
-                df['jornada'] = df['matchday']
-                df['equipo_local'] = df['homeTeam'].apply(lambda x: x['name'])
-                df['equipo_visitante'] = df['awayTeam'].apply(lambda x: x['name'])
-                df['arbitro'] = df['referees'].apply(lambda x: x[0]['name'] if x else None)
-                df['resultado'] = df['score'].apply(lambda x: f"{x['fullTime']['home']} - {x['fullTime']['away']}" if x['fullTime'] else None)
+                # Verifico si hay partidos en la respuesta de la API.
+                if 'matches' not in data:
+                    print(f"No hay partidos disponibles para la competición: {params['competitions']}")
+                    continue
+                else:
+                    # Si hay partidos creo un DataFrame con los datos de los partidos.
+                    df = pd.DataFrame(data['matches'])
+                    # Verifico que el dataframe se haya creado correctamente
+                    if df.empty:
+                        logging.info("No hay datos de partidos disponibles.")
+                        continue
+                    else:
+                    # Proceso y agrego las columnas al DataFrame basandome el los atributos que me interesan brindados por la API.
 
-                logging.info(f'Data obtenida: {df.shape[0]} partidos recuperados.')
-                dataframes.append(df)
-            else:
-                logging.error(f'Error al obtener partidos: {response.status_code}')
+                        df['fecha_partido'] = df['utcDate']
+                        df['competicion'] = df['competition'].apply(lambda x: x['name'])
+                        df['estado'] = df['status']
+                        df['etapa'] = df['stage']
+                        df['jornada'] = df['matchday']
+                        df['equipo_local'] = df['homeTeam'].apply(lambda x: x['name'])
+                        df['equipo_visitante'] = df['awayTeam'].apply(lambda x: x['name'])
+                        df['arbitro'] = df['referees'].apply(lambda x: x[0]['name'] if x else None)
+                        df['resultado'] = df['score'].apply(lambda x: f"{x['fullTime']['home']} - {x['fullTime']['away']}" if x['fullTime'] else None)
+                    #Muestro la cantidad de partidos obtenidos para cada liga y agrego el df al listado de dataframes.
+                        logging.info(f'Data obtenida: {df.shape[0]} partidos recuperados.')
+                        dataframes.append(df)
+                    # Convierto los datos  a un formato adecuado para almacenar en XCom utilizado por AirFlow para compartir datos entre las tareas.
+                        combined_df = pd.concat(dataframes, ignore_index=True)
 
-        combined_df = pd.concat(dataframes, ignore_index=True)
-
-        xcom_value = combined_df.to_dict(orient='records')
-
-        return xcom_value
+                        xcom_value = combined_df.to_dict(orient='records')
+                        return xcom_value #Devuelvo los datos del  xcom para utilizarlo en la proxima tarea de carga
     except Exception as e:
-        logging.error(f'Error during data extraction: {e}')
+        logging.error(f'Error en la extracción de datos: {e}')
         raise e
 
-
-
-
-
-from datetime import datetime
-import psycopg2
-import logging
-from psycopg2.extras import execute_values
-
+#4° Tarea con todo procesado y la conexión verificada cargo los datos a Redshift
 def cargar_datos_redshift(exec_date, **kwargs):
-
-
+    #Vuelvo a conectarme a RedShfit con los datos que verifique anteriormente que funcionan.
     conn = psycopg2.connect(
         host=redshift_conn["host"],
         dbname=redshift_conn["database"],
@@ -126,36 +147,54 @@ def cargar_datos_redshift(exec_date, **kwargs):
         password=redshift_conn["pwd"],
         port='5439')
 
-
-    xcom_value = kwargs.get('task_instance').xcom_pull(task_ids='extraccion_datos')
-
+    # Obtengo xcom_value desde la tarea anterior para poder utilizarlo en la tarea de carga.
+    xcom_value = kwargs.get('task_instance').xcom_pull(task_ids='transformacion_extraccion_datos')
+    #Verifico que xcom no este vacio.
     if xcom_value is None or not xcom_value:
-        logging.error("No se recibieron datos válidos desde la tarea de extracción.")
+        logging.info(f'Sin partidos nuevos.')
         return
 
     cur = conn.cursor()
 
+    #Comienzo con la carga de datos, definiendo la tabla que previamente cree en RedShift y los nombres de cada columna
     try:
         table_name = 'Partidos'
         columns = ['fecha_partido', 'competicion', 'estado',
-                   'etapa', 'jornada', 'equipo_local',
-                   'equipo_visitante', 'arbitro', 'resultado']
+                'etapa', 'jornada', 'equipo_local',
+                'equipo_visitante', 'arbitro', 'resultado']
+    #Verifico que los datos que voy a cargar no estén previamente cargados en RedShift
+        for row in xcom_value:
+            fecha_partido = row['fecha_partido']
+            competicion = row['competicion']
+            equipo_local = row['equipo_local']
+            equipo_visitante = row['equipo_visitante']
 
-        values = [tuple(row[column] for column in columns) for row in xcom_value]
+            cur.execute("""
+                            SELECT COUNT(*) FROM Partidos
+                            WHERE fecha_partido = %s AND competicion = %s AND equipo_local = %s AND equipo_visitante = %s
+                        """, (
+                            fecha_partido, competicion, equipo_local, equipo_visitante
+                        ))
 
+            count = cur.fetchone()[0]
+            logging.info(f'count: {count}')
+            #Si no hay registros duplicados cargo los datos a RedShift
+            if count == 0:
+                values = [tuple(row[column] for column in columns) for row in xcom_value]
 
-        insert_sql = 'INSERT INTO "{}" ({}) VALUES %s'.format(table_name, ', '.join('"' + col + '"' for col in columns))
+                insert_sql = 'INSERT INTO "{}" ({}) VALUES %s'.format(table_name, ', '.join('"' + col + '"' for col in columns))
 
-        cur.execute("BEGIN")
-        execute_values(cur, insert_sql, values)
-        cur.execute("COMMIT")
+                cur.execute("BEGIN")
+                execute_values(cur, insert_sql, values)
+                cur.execute("COMMIT")
 
-        logging.info("Datos cargados correctamente en Redshift")
+                logging.info("Datos cargados correctamente en Redshift para el registro actual.")
+            else:
+                logging.warning("Los datos ya existen en la base de datos para el registro actual. No se realizará la inserción.")
 
     except Exception as e:
-        logging.error(f"Error al cargar los datos: {str(e)}")
-        conn.rollback()
-
+        logging.error(f"Error al intentar cargar datos en Redshift: {str(e)}")
+    #Cierro la conexión
     finally:
         cur.close()
         conn.close()
@@ -163,7 +202,9 @@ def cargar_datos_redshift(exec_date, **kwargs):
         logging.info("Finalizado")
 
 
-task_1_conexion = PythonOperator(
+
+#Defino cada una de las tareas secuenciales del DAG
+conexion_redshift = PythonOperator(
     task_id="conexion_BD",
     python_callable=conexion_redshift,
     op_args=["{{ ds }} {{ execution_date.hour }}"],
@@ -171,7 +212,7 @@ task_1_conexion = PythonOperator(
     dag=futbol_dag,
 )
 
-task_2_api = PythonOperator(
+conexion_api = PythonOperator(
     task_id='respuesta_api',
     python_callable=verificar_respuesta_api,
     op_args=["{{ ds }} {{ execution_date.hour }}"],
@@ -179,14 +220,17 @@ task_2_api = PythonOperator(
     dag=futbol_dag,
 )
 
-task_3_extraccion = PythonOperator(
-    task_id='extraccion_datos',
-    python_callable=extraccion,
+
+extraccion_transformacion = PythonOperator(
+    task_id='transformacion_extraccion_datos',
+    python_callable=transformacion_extraccion_datos,
+    op_args=["{{ ds }} {{ execution_date.hour }}"],
     provide_context=True,
     dag=futbol_dag,
 )
 
-cargar_redshift_task = PythonOperator(
+
+carga_redshift = PythonOperator(
     task_id='cargar_redshift_task',
     python_callable=cargar_datos_redshift,
     op_args=["{{ ds }} {{ execution_date.hour }}"],
@@ -194,4 +238,5 @@ cargar_redshift_task = PythonOperator(
     dag=futbol_dag,
 )
 
-task_1_conexion >> task_2_api >> task_3_extraccion >> cargar_redshift_task
+#Defino el flujo del DAG.
+conexion_redshift >> conexion_api >> extraccion_transformacion >> carga_redshift
