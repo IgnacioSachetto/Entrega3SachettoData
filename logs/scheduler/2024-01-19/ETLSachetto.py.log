@@ -9782,3 +9782,94 @@ NameError: name 'transformacion' is not defined
 [2024-01-19 04:20:05,431] {logging_mixin.py:115} INFO - [2024-01-19 04:20:05,430] {dag.py:2420} INFO - Sync 1 DAGs
 [2024-01-19 04:20:05,456] {logging_mixin.py:115} INFO - [2024-01-19 04:20:05,456] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
 [2024-01-19 04:20:05,724] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 3.681 seconds
+[2024-01-19 04:20:16,257] {processor.py:153} INFO - Started process (PID=26347) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:16,258] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:20:16,260] {logging_mixin.py:115} INFO - [2024-01-19 04:20:16,259] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:16,764] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:16,840] {logging_mixin.py:115} INFO - [2024-01-19 04:20:16,840] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:16,866] {logging_mixin.py:115} INFO - [2024-01-19 04:20:16,866] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:20:16,959] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.706 seconds
+[2024-01-19 04:20:27,065] {processor.py:153} INFO - Started process (PID=26359) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:27,067] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:20:27,069] {logging_mixin.py:115} INFO - [2024-01-19 04:20:27,068] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:27,571] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:27,589] {logging_mixin.py:115} INFO - [2024-01-19 04:20:27,588] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:27,614] {logging_mixin.py:115} INFO - [2024-01-19 04:20:27,614] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:20:27,664] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.604 seconds
+[2024-01-19 04:20:37,871] {processor.py:153} INFO - Started process (PID=26371) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:37,874] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:20:37,876] {logging_mixin.py:115} INFO - [2024-01-19 04:20:37,876] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:38,542] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:38,561] {logging_mixin.py:115} INFO - [2024-01-19 04:20:38,560] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:38,595] {logging_mixin.py:115} INFO - [2024-01-19 04:20:38,594] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:20:38,648] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.787 seconds
+[2024-01-19 04:20:49,238] {processor.py:153} INFO - Started process (PID=26383) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:49,239] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:20:49,240] {logging_mixin.py:115} INFO - [2024-01-19 04:20:49,240] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:49,819] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:20:49,907] {logging_mixin.py:115} INFO - [2024-01-19 04:20:49,906] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:49,933] {logging_mixin.py:115} INFO - [2024-01-19 04:20:49,933] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:20:49,973] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.741 seconds
+[2024-01-19 04:21:00,107] {processor.py:153} INFO - Started process (PID=26395) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:00,108] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:00,109] {logging_mixin.py:115} INFO - [2024-01-19 04:21:00,109] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:00,815] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:00,834] {logging_mixin.py:115} INFO - [2024-01-19 04:21:00,833] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:00,877] {logging_mixin.py:115} INFO - [2024-01-19 04:21:00,877] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:21:00,967] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.867 seconds
+[2024-01-19 04:21:11,270] {processor.py:153} INFO - Started process (PID=26407) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:11,271] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:11,272] {logging_mixin.py:115} INFO - [2024-01-19 04:21:11,272] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:12,011] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:12,028] {logging_mixin.py:115} INFO - [2024-01-19 04:21:12,027] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:12,056] {logging_mixin.py:115} INFO - [2024-01-19 04:21:12,056] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:21:12,137] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.872 seconds
+[2024-01-19 04:21:22,252] {processor.py:153} INFO - Started process (PID=26419) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:22,253] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:22,254] {logging_mixin.py:115} INFO - [2024-01-19 04:21:22,254] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:22,764] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:22,922] {logging_mixin.py:115} INFO - [2024-01-19 04:21:22,921] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:22,946] {logging_mixin.py:115} INFO - [2024-01-19 04:21:22,946] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:21:23,060] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.813 seconds
+[2024-01-19 04:21:33,175] {processor.py:153} INFO - Started process (PID=26431) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:33,177] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:33,178] {logging_mixin.py:115} INFO - [2024-01-19 04:21:33,178] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:34,120] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:34,139] {logging_mixin.py:115} INFO - [2024-01-19 04:21:34,139] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:34,180] {logging_mixin.py:115} INFO - [2024-01-19 04:21:34,179] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:21:34,229] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 1.060 seconds
+[2024-01-19 04:21:44,339] {processor.py:153} INFO - Started process (PID=26443) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:44,340] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:44,341] {logging_mixin.py:115} INFO - [2024-01-19 04:21:44,341] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:44,938] {processor.py:651} INFO - DAG(s) dict_keys(['ETLProcesoCompleto']) retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:44,954] {logging_mixin.py:115} INFO - [2024-01-19 04:21:44,954] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:44,980] {logging_mixin.py:115} INFO - [2024-01-19 04:21:44,979] {dag.py:2972} INFO - Setting next_dagrun for ETLProcesoCompleto to 2024-01-20T00:00:00+00:00, run_after=2024-01-21T00:00:00+00:00
+[2024-01-19 04:21:45,036] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.702 seconds
+[2024-01-19 04:21:55,149] {processor.py:153} INFO - Started process (PID=26455) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:55,150] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:21:55,151] {logging_mixin.py:115} INFO - [2024-01-19 04:21:55,151] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:55,742] {logging_mixin.py:115} INFO - [2024-01-19 04:21:55,695] {dagbag.py:321} ERROR - Failed to import: /opt/airflow/dags/ETLSachetto.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 318, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/ETLSachetto.py", line 10, in <module>
+    from credentials import FOOTBALL_API_TOKEN, HOST_REDSHIFT, USUARIO_REDSHIFT, CONTRASEÑA_REDSHIFT, PUERTO_REDSHIFT, BASEDEDATOS_REDSHIFT
+ModuleNotFoundError: No module named 'credentials'
+[2024-01-19 04:21:55,744] {processor.py:653} WARNING - No viable dags retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:21:56,144] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 1.001 seconds
+[2024-01-19 04:22:06,260] {processor.py:153} INFO - Started process (PID=26467) to work on /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:22:06,261] {processor.py:641} INFO - Processing file /opt/airflow/dags/ETLSachetto.py for tasks to queue
+[2024-01-19 04:22:06,262] {logging_mixin.py:115} INFO - [2024-01-19 04:22:06,262] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:22:06,790] {logging_mixin.py:115} INFO - [2024-01-19 04:22:06,784] {dagbag.py:321} ERROR - Failed to import: /opt/airflow/dags/ETLSachetto.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 318, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/ETLSachetto.py", line 10, in <module>
+    from credentials import FOOTBALL_API_TOKEN, HOST_REDSHIFT, USUARIO_REDSHIFT, CONTRASEÑA_REDSHIFT, PUERTO_REDSHIFT, BASEDEDATOS_REDSHIFT
+ModuleNotFoundError: No module named 'credentials'
+[2024-01-19 04:22:06,792] {processor.py:653} WARNING - No viable dags retrieved from /opt/airflow/dags/ETLSachetto.py
+[2024-01-19 04:22:06,881] {processor.py:161} INFO - Processing /opt/airflow/dags/ETLSachetto.py took 0.626 seconds

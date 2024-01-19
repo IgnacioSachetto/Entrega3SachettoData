@@ -9324,3 +9324,80 @@ Please take a look at these docs to improve your DAG import time:
 [2024-01-19 04:20:03,200] {logging_mixin.py:115} INFO - [2024-01-19 04:20:03,199] {dag.py:2420} INFO - Sync 1 DAGs
 [2024-01-19 04:20:03,225] {logging_mixin.py:115} INFO - [2024-01-19 04:20:03,225] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
 [2024-01-19 04:20:03,533] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 1.485 seconds
+[2024-01-19 04:20:14,845] {processor.py:153} INFO - Started process (PID=26341) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:14,847] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:20:14,848] {logging_mixin.py:115} INFO - [2024-01-19 04:20:14,848] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:15,359] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:15,386] {logging_mixin.py:115} INFO - [2024-01-19 04:20:15,385] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:15,413] {logging_mixin.py:115} INFO - [2024-01-19 04:20:15,413] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:20:15,499] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.664 seconds
+[2024-01-19 04:20:25,620] {processor.py:153} INFO - Started process (PID=26353) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:25,621] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:20:25,622] {logging_mixin.py:115} INFO - [2024-01-19 04:20:25,622] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:26,182] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:26,211] {logging_mixin.py:115} INFO - [2024-01-19 04:20:26,210] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:26,238] {logging_mixin.py:115} INFO - [2024-01-19 04:20:26,238] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:20:26,380] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.767 seconds
+[2024-01-19 04:20:36,491] {processor.py:153} INFO - Started process (PID=26365) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:36,493] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:20:36,494] {logging_mixin.py:115} INFO - [2024-01-19 04:20:36,494] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:37,224] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:37,250] {logging_mixin.py:115} INFO - [2024-01-19 04:20:37,250] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:37,278] {logging_mixin.py:115} INFO - [2024-01-19 04:20:37,277] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:20:37,319] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.832 seconds
+[2024-01-19 04:20:47,470] {processor.py:153} INFO - Started process (PID=26377) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:47,471] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:20:47,472] {logging_mixin.py:115} INFO - [2024-01-19 04:20:47,472] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:48,122] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:48,160] {logging_mixin.py:115} INFO - [2024-01-19 04:20:48,159] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:48,189] {logging_mixin.py:115} INFO - [2024-01-19 04:20:48,189] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:20:48,289] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.824 seconds
+[2024-01-19 04:20:58,393] {processor.py:153} INFO - Started process (PID=26389) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:58,394] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:20:58,395] {logging_mixin.py:115} INFO - [2024-01-19 04:20:58,395] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:59,002] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:20:59,032] {logging_mixin.py:115} INFO - [2024-01-19 04:20:59,031] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:20:59,059] {logging_mixin.py:115} INFO - [2024-01-19 04:20:59,059] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:20:59,105] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.716 seconds
+[2024-01-19 04:21:09,249] {processor.py:153} INFO - Started process (PID=26401) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:09,250] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:21:09,251] {logging_mixin.py:115} INFO - [2024-01-19 04:21:09,250] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:09,792] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:09,820] {logging_mixin.py:115} INFO - [2024-01-19 04:21:09,820] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:09,846] {logging_mixin.py:115} INFO - [2024-01-19 04:21:09,846] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:21:09,931] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.687 seconds
+[2024-01-19 04:21:20,043] {processor.py:153} INFO - Started process (PID=26413) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:20,045] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:21:20,046] {logging_mixin.py:115} INFO - [2024-01-19 04:21:20,046] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:20,567] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:20,594] {logging_mixin.py:115} INFO - [2024-01-19 04:21:20,594] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:20,620] {logging_mixin.py:115} INFO - [2024-01-19 04:21:20,619] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:21:20,658] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.619 seconds
+[2024-01-19 04:21:30,790] {processor.py:153} INFO - Started process (PID=26425) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:30,791] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:21:30,792] {logging_mixin.py:115} INFO - [2024-01-19 04:21:30,792] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:31,537] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:31,570] {logging_mixin.py:115} INFO - [2024-01-19 04:21:31,570] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:31,602] {logging_mixin.py:115} INFO - [2024-01-19 04:21:31,602] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:21:31,660] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.875 seconds
+[2024-01-19 04:21:42,253] {processor.py:153} INFO - Started process (PID=26437) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:42,254] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:21:42,255] {logging_mixin.py:115} INFO - [2024-01-19 04:21:42,255] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:42,806] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:42,835] {logging_mixin.py:115} INFO - [2024-01-19 04:21:42,835] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:42,869] {logging_mixin.py:115} INFO - [2024-01-19 04:21:42,869] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:21:42,997] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.750 seconds
+[2024-01-19 04:21:53,162] {processor.py:153} INFO - Started process (PID=26449) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:53,164] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:21:53,166] {logging_mixin.py:115} INFO - [2024-01-19 04:21:53,166] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:53,773] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:21:53,806] {logging_mixin.py:115} INFO - [2024-01-19 04:21:53,805] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:21:53,840] {logging_mixin.py:115} INFO - [2024-01-19 04:21:53,840] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:21:54,092] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.944 seconds
+[2024-01-19 04:22:04,262] {processor.py:153} INFO - Started process (PID=26461) to work on /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:22:04,264] {processor.py:641} INFO - Processing file /opt/airflow/dags/__pycache__/ETLPrueba.py for tasks to queue
+[2024-01-19 04:22:04,265] {logging_mixin.py:115} INFO - [2024-01-19 04:22:04,265] {dagbag.py:508} INFO - Filling up the DagBag from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:22:04,872] {processor.py:651} INFO - DAG(s) dict_keys(['ETLFutbol']) retrieved from /opt/airflow/dags/__pycache__/ETLPrueba.py
+[2024-01-19 04:22:04,904] {logging_mixin.py:115} INFO - [2024-01-19 04:22:04,903] {dag.py:2420} INFO - Sync 1 DAGs
+[2024-01-19 04:22:04,949] {logging_mixin.py:115} INFO - [2024-01-19 04:22:04,948] {dag.py:2972} INFO - Setting next_dagrun for ETLFutbol to 2024-01-19T00:00:00+00:00, run_after=2024-01-20T00:00:00+00:00
+[2024-01-19 04:22:05,181] {processor.py:161} INFO - Processing /opt/airflow/dags/__pycache__/ETLPrueba.py took 0.926 seconds
